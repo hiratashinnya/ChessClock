@@ -1,29 +1,40 @@
 <!---
 ユースケース図を描く
 --->
-# ユースケース図
+# アプリケーション”ChessClock”のユースケース図
 |システムID|システム名称|
 |:--|:--|
-|hogehoge|Restaurant|
+|VB-pra01|ChessClock|
 
+## ユースケース図
 ```plantuml
 @startuml
 left to right direction
-actor Guest as g
-package Professional {
-  actor Chef as c
-  actor "Food Critic" as fc
+
+package Player {
+ actor player1 as p1
+ actor player2 as p2
 }
-package Restaurant {
-  usecase "Eat Food" as UC1
-  usecase "Pay for Food" as UC2
-  usecase "Drink" as UC3
-  usecase "Review" as UC4
+package Application {
+  usecase "playerの持ち時間を設定する" as UC1
+  usecase "playerの秒読み時間を設定する" as UC2
+
+  usecase "ハンデありの持ち時間を設定する" as UC1_1
+  usecase "ハンデありの秒読み時間を設定する" as UC2_1
+
+  usecase "相手の手番を開始する" as UC3
+  usecase "リセットする" as UC4
+  
 }
-fc --> UC4
-g --> UC1
-g --> UC2
-g --> UC3
+
+Player --> UC1
+Player --> UC2
+Player --> UC3
+Player --> UC4
+
+UC1_1 -|> UC1
+UC2_1 -|> UC2
+
 @enduml
 ```
 
