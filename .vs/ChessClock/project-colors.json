@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f2d52926-98a8-4c51-b5a9-a70d884003d7": {
+      "ProjectGuid": "f2d52926-98a8-4c51-b5a9-a70d884003d7",
+      "DisplayName": "ChessClock",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
