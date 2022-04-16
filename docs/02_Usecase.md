@@ -1,0 +1,30 @@
+<!---
+ユースケース図を描く
+--->
+# ユースケース図
+|システムID|システム名称|
+|:--|:--|
+|hogehoge|Restaurant|
+
+```plantuml
+@startuml
+left to right direction
+actor Guest as g
+package Professional {
+  actor Chef as c
+  actor "Food Critic" as fc
+}
+package Restaurant {
+  usecase "Eat Food" as UC1
+  usecase "Pay for Food" as UC2
+  usecase "Drink" as UC3
+  usecase "Review" as UC4
+}
+fc --> UC4
+g --> UC1
+g --> UC2
+g --> UC3
+@enduml
+```
+
+
