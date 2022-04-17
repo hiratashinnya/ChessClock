@@ -39,6 +39,7 @@ Partial Class Form1
         Me.ResetButton = New System.Windows.Forms.Button()
         Me.Player2Done_Button = New System.Windows.Forms.Button()
         Me.Player1Done_Button1 = New System.Windows.Forms.Button()
+        Me.CanDifferentTime_CheckBox = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Player2Minitute_TextBox
@@ -180,11 +181,22 @@ Partial Class Form1
         Me.Player1Done_Button1.Text = "Done"
         Me.Player1Done_Button1.UseVisualStyleBackColor = True
         '
+        'CanDifferentTime_CheckBox
+        '
+        Me.CanDifferentTime_CheckBox.AutoSize = True
+        Me.CanDifferentTime_CheckBox.Location = New System.Drawing.Point(106, 22)
+        Me.CanDifferentTime_CheckBox.Name = "CanDifferentTime_CheckBox"
+        Me.CanDifferentTime_CheckBox.Size = New System.Drawing.Size(88, 24)
+        Me.CanDifferentTime_CheckBox.TabIndex = 17
+        Me.CanDifferentTime_CheckBox.Text = "ハンデあり"
+        Me.CanDifferentTime_CheckBox.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CanDifferentTime_CheckBox)
         Me.Controls.Add(Me.Player1Done_Button1)
         Me.Controls.Add(Me.Player2Done_Button)
         Me.Controls.Add(Me.ResetButton)
@@ -226,4 +238,5 @@ Partial Class Form1
     Friend WithEvents ResetButton As Button
     Friend WithEvents Player2Done_Button As Button
     Friend WithEvents Player1Done_Button1 As Button
+    Friend WithEvents CanDifferentTime_CheckBox As CheckBox
 End Class
