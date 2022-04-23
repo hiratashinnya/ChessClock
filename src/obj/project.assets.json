@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\ChessClock.vbproj",
+      "projectUniqueName": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\src\\ChessClock.vbproj",
       "projectName": "ChessClock",
-      "projectPath": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\ChessClock.vbproj",
+      "projectPath": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\src\\ChessClock.vbproj",
       "packagesPath": "C:\\Users\\hiras\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\obj\\",
+      "outputPath": "C:\\Users\\hiras\\OneDrive\\デスクトップ\\開発勉強用\\VB\\ChessClock\\src\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
