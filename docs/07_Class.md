@@ -28,33 +28,39 @@ class Form{
   設定中変更()
   ハンデ有無変更()
   秒読み有無変更()
-  持ち時間の更新イベントハンドラ()
-  秒読み時間の更新イベントハンドラ()
-  時間切れの更新イベントハンドラ()
+  持ち時間の更新イベントハンドラ()<-ChessClock.持ち時間更新イベント
+  秒読み時間の更新イベントハンドラ()<-ChessClock.秒読み時間更新イベント
+  時間切れイベントハンドラ()<-ChessClock.時間切れイベント
 }
 
 class ChessClock{
-  +players:List<Player>
+  +players:List<PlayersTimer>
   +秒読みあり:bool
   -currentPlayer:int
   +ハンデあり:bool
+  +持ち時間更新イベント
+  +秒読み時間更新イベント
+  +時間切れイベント
+  
   +プレイヤーを設定する(name:String, time1:int, time2:int):void
-  +次プレイヤーに手番を移す():void
+  +プレイヤーに手番を移す(nextID:int):void
   +一時停止する():void
   +リセットする():void
-  +Timerイベントハンドラ():void
+  +タイマー更新イベントハンドラ()<-PlayersTimer.タイマー更新イベント
 }
 
-class Player{
+class PlayersTimer{
   name:String
   総持ち時間:int
   総秒読み時間:int
   残持ち時間:int
   残秒読み時間:int
   owntimer:timer
+  +{static}タイマー更新イベント
+  -タイマー更新イベントの発火()<-owntimer.Tick
 }
 
 Form "1" --> "1" ChessClock
-ChessClock "1" o-- "N" Player
+ChessClock "1" o-- "N" PlayersTimer
 @enduml
 ```
