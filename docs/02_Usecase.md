@@ -23,7 +23,8 @@ package Application {
   usecase "ハンデありの秒読み時間を設定する" as UC2_1
 
   usecase "相手の手番を開始する" as UC3
-  usecase "リセットする" as UC4
+  usecase "一時停止する" as UC4
+  usecase "リセットする" as UC5
   
 }
 
@@ -31,9 +32,12 @@ Player --> UC1
 Player --> UC2
 Player --> UC3
 Player --> UC4
+Player --> UC5
 
-UC1_1 -|> UC1
-UC2_1 -|> UC2
+UC1_1 -> UC1 : <<拡張>>
+UC2_1 -> UC2 : <<拡張>>
+
+UC4 <- UC5 : <<依存>>
 
 @enduml
 ```
