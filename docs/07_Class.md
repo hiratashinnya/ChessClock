@@ -43,6 +43,7 @@ class ChessClock{
   +時間切れイベント
   
   +プレイヤーを設定する(name:String, time1:int, time2:int):void
+  +カウントダウンを開始する(name:String):void
   +プレイヤーに手番を移す(nextPlayer:String):void
   +一時停止する():void
   +リセットする():void
