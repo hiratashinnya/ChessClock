@@ -13,7 +13,7 @@ Option Explicit On
 
 Imports System
 Imports System.Reflection
-<Assembly: System.Reflection.AssemblyCompanyAttribute("ChessClock"),  _
+<Assembly: System.Reflection.AssemblyCompanyAttribute("Hirata Shinya"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
  Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
