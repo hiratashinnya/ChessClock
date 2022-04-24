@@ -15,12 +15,12 @@ class Form{
   ハンデあり:checkbox
   秒読みあり:checkbox
   設定中:checkbox
-  player1name:textbox
-  player1の持ち時間:textbox
-  player1の秒読み時間:textbox
-  player2name:textbox
-  player2の持ち時間:textbox
-  player2の秒読み時間:textbox
+  Player1name:textbox
+  Player1の持ち時間:textbox
+  Player1の秒読み時間:textbox
+  Player2name:textbox
+  Player2の持ち時間:textbox
+  Player2の秒読み時間:textbox
   リセットボタン:button
   Doneボタン:button
   リセットボタンクリック()
@@ -34,30 +34,40 @@ class Form{
 }
 
 class ChessClock{
-  +players:List<PlayersTimer>
+  +Players:Dictionary<String,PlayersTimer>
   +秒読みあり:bool
-  -currentPlayer:int
+  -CurrentPlayer:PlayersTimer
   +ハンデあり:bool
   +持ち時間更新イベント
   +秒読み時間更新イベント
   +時間切れイベント
   
   +プレイヤーを設定する(name:String, time1:int, time2:int):void
-  +プレイヤーに手番を移す(nextID:int):void
+  +プレイヤーに手番を移す(nextPlayer:String):void
   +一時停止する():void
   +リセットする():void
-  +タイマー更新イベントハンドラ()<-PlayersTimer.タイマー更新イベント
+  +タイマー更新イベントハンドラ()<-CurrentPlayer.タイマー更新イベント
 }
 
 class PlayersTimer{
-  name:String
+  Name:String
   総持ち時間:int
   総秒読み時間:int
   残持ち時間:int
   残秒読み時間:int
-  owntimer:timer
-  +{static}タイマー更新イベント
-  -タイマー更新イベントの発火()<-owntimer.Tick
+  秒読み中か:bool
+  OwnTimer:timer
+  +タイマー更新イベント
+
+  -タイマー更新イベントの発火()<-OwnTimer.Tick
+  +プレイヤーデータを変更する(name:String, time1:int, time2:int):void
+  +リセットする():void
+  +秒読み時間をリセットする():void
+  +持ち時間をリセットする():void
+  +持ち時間をデクリメントする():bool
+  +秒読み時間をデクリメントする():bool
+  +タイマーを停止する():void
+  +タイマーを開始する():void
 }
 
 Form "1" --> "1" ChessClock
