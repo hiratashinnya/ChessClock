@@ -30,15 +30,15 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Player1Name_TextBox = New System.Windows.Forms.TextBox()
         Me.Player2Name_TextBox = New System.Windows.Forms.TextBox()
-        Me.HasCountdown_CheckBox = New System.Windows.Forms.CheckBox()
+        Me.HasByo_yomi_CheckBox = New System.Windows.Forms.CheckBox()
         Me.DuringSetting_CheckBox = New System.Windows.Forms.CheckBox()
-        Me.Player1Countdown_TextBox = New System.Windows.Forms.TextBox()
-        Me.Player2Countdown_TextBox = New System.Windows.Forms.TextBox()
+        Me.Player1Byo_yomi_TextBox = New System.Windows.Forms.TextBox()
+        Me.Player2Byo_yomi_TextBox = New System.Windows.Forms.TextBox()
         Me.Countdown2_Label = New System.Windows.Forms.Label()
         Me.Countdown1_Label = New System.Windows.Forms.Label()
         Me.ResetButton = New System.Windows.Forms.Button()
         Me.Player2Done_Button = New System.Windows.Forms.Button()
-        Me.Player1Done_Button1 = New System.Windows.Forms.Button()
+        Me.Player1Done_Button = New System.Windows.Forms.Button()
         Me.CanDifferentTime_CheckBox = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
@@ -102,15 +102,15 @@ Partial Class Form1
         Me.Player2Name_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Name_TextBox.TabIndex = 7
         '
-        'HasCountdown_CheckBox
+        'HasByo_yomi_CheckBox
         '
-        Me.HasCountdown_CheckBox.AutoSize = True
-        Me.HasCountdown_CheckBox.Location = New System.Drawing.Point(358, 101)
-        Me.HasCountdown_CheckBox.Name = "HasCountdown_CheckBox"
-        Me.HasCountdown_CheckBox.Size = New System.Drawing.Size(96, 24)
-        Me.HasCountdown_CheckBox.TabIndex = 8
-        Me.HasCountdown_CheckBox.Text = "秒読みあり"
-        Me.HasCountdown_CheckBox.UseVisualStyleBackColor = True
+        Me.HasByo_yomi_CheckBox.AutoSize = True
+        Me.HasByo_yomi_CheckBox.Location = New System.Drawing.Point(358, 101)
+        Me.HasByo_yomi_CheckBox.Name = "HasByo_yomi_CheckBox"
+        Me.HasByo_yomi_CheckBox.Size = New System.Drawing.Size(96, 24)
+        Me.HasByo_yomi_CheckBox.TabIndex = 8
+        Me.HasByo_yomi_CheckBox.Text = "秒読みあり"
+        Me.HasByo_yomi_CheckBox.UseVisualStyleBackColor = True
         '
         'DuringSetting_CheckBox
         '
@@ -122,19 +122,19 @@ Partial Class Form1
         Me.DuringSetting_CheckBox.Text = "設定中"
         Me.DuringSetting_CheckBox.UseVisualStyleBackColor = True
         '
-        'Player1Countdown_TextBox
+        'Player1Byo_yomi_TextBox
         '
-        Me.Player1Countdown_TextBox.Location = New System.Drawing.Point(204, 200)
-        Me.Player1Countdown_TextBox.Name = "Player1Countdown_TextBox"
-        Me.Player1Countdown_TextBox.Size = New System.Drawing.Size(160, 27)
-        Me.Player1Countdown_TextBox.TabIndex = 10
+        Me.Player1Byo_yomi_TextBox.Location = New System.Drawing.Point(204, 200)
+        Me.Player1Byo_yomi_TextBox.Name = "Player1Byo_yomi_TextBox"
+        Me.Player1Byo_yomi_TextBox.Size = New System.Drawing.Size(160, 27)
+        Me.Player1Byo_yomi_TextBox.TabIndex = 10
         '
-        'Player2Countdown_TextBox
+        'Player2Byo_yomi_TextBox
         '
-        Me.Player2Countdown_TextBox.Location = New System.Drawing.Point(628, 200)
-        Me.Player2Countdown_TextBox.Name = "Player2Countdown_TextBox"
-        Me.Player2Countdown_TextBox.Size = New System.Drawing.Size(160, 27)
-        Me.Player2Countdown_TextBox.TabIndex = 11
+        Me.Player2Byo_yomi_TextBox.Location = New System.Drawing.Point(628, 200)
+        Me.Player2Byo_yomi_TextBox.Name = "Player2Byo_yomi_TextBox"
+        Me.Player2Byo_yomi_TextBox.Size = New System.Drawing.Size(160, 27)
+        Me.Player2Byo_yomi_TextBox.TabIndex = 11
         '
         'Countdown2_Label
         '
@@ -172,14 +172,14 @@ Partial Class Form1
         Me.Player2Done_Button.Text = "Done"
         Me.Player2Done_Button.UseVisualStyleBackColor = True
         '
-        'Player1Done_Button1
+        'Player1Done_Button
         '
-        Me.Player1Done_Button1.Location = New System.Drawing.Point(12, 286)
-        Me.Player1Done_Button1.Name = "Player1Done_Button1"
-        Me.Player1Done_Button1.Size = New System.Drawing.Size(227, 87)
-        Me.Player1Done_Button1.TabIndex = 16
-        Me.Player1Done_Button1.Text = "Done"
-        Me.Player1Done_Button1.UseVisualStyleBackColor = True
+        Me.Player1Done_Button.Location = New System.Drawing.Point(12, 286)
+        Me.Player1Done_Button.Name = "Player1Done_Button"
+        Me.Player1Done_Button.Size = New System.Drawing.Size(227, 87)
+        Me.Player1Done_Button.TabIndex = 16
+        Me.Player1Done_Button.Text = "Done"
+        Me.Player1Done_Button.UseVisualStyleBackColor = True
         '
         'CanDifferentTime_CheckBox
         '
@@ -197,15 +197,15 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.CanDifferentTime_CheckBox)
-        Me.Controls.Add(Me.Player1Done_Button1)
+        Me.Controls.Add(Me.Player1Done_Button)
         Me.Controls.Add(Me.Player2Done_Button)
         Me.Controls.Add(Me.ResetButton)
         Me.Controls.Add(Me.Countdown1_Label)
         Me.Controls.Add(Me.Countdown2_Label)
-        Me.Controls.Add(Me.Player2Countdown_TextBox)
-        Me.Controls.Add(Me.Player1Countdown_TextBox)
+        Me.Controls.Add(Me.Player2Byo_yomi_TextBox)
+        Me.Controls.Add(Me.Player1Byo_yomi_TextBox)
         Me.Controls.Add(Me.DuringSetting_CheckBox)
-        Me.Controls.Add(Me.HasCountdown_CheckBox)
+        Me.Controls.Add(Me.HasByo_yomi_CheckBox)
         Me.Controls.Add(Me.Player2Name_TextBox)
         Me.Controls.Add(Me.Player1Name_TextBox)
         Me.Controls.Add(Me.Label2)
@@ -229,14 +229,14 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Player1Name_TextBox As TextBox
     Friend WithEvents Player2Name_TextBox As TextBox
-    Friend WithEvents HasCountdown_CheckBox As CheckBox
+    Friend WithEvents HasByo_yomi_CheckBox As CheckBox
     Friend WithEvents DuringSetting_CheckBox As CheckBox
-    Friend WithEvents Player1Countdown_TextBox As TextBox
-    Friend WithEvents Player2Countdown_TextBox As TextBox
+    Friend WithEvents Player1Byo_yomi_TextBox As TextBox
+    Friend WithEvents Player2Byo_yomi_TextBox As TextBox
     Friend WithEvents Countdown2_Label As Label
     Friend WithEvents Countdown1_Label As Label
     Friend WithEvents ResetButton As Button
     Friend WithEvents Player2Done_Button As Button
-    Friend WithEvents Player1Done_Button1 As Button
+    Friend WithEvents Player1Done_Button As Button
     Friend WithEvents CanDifferentTime_CheckBox As CheckBox
 End Class

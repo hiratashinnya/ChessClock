@@ -23,6 +23,13 @@ class Form{
   Player2の秒読み時間:textbox
   リセットボタン:button
   Doneボタン:button
+  動作中フラグ:bool
+ 
+  -P1P2のデータを同期する():void
+  -テキストボックスのデータフォーマットをチェックする():bool
+  -設定を開始する():void
+  -設定を終了する():void
+
   リセットボタンクリック()
   Doneボタンクリック()
   設定中変更()
@@ -42,6 +49,10 @@ class ChessClock{
   +秒読み時間更新イベント
   +時間切れイベント
   
+  +持ち時間のレンジチェック(min:int);bool
+  +持ち時間のレンジチェック(sec:int);bool
+  +秒読み時間のレンジチェック(sec:int);bool
+
   +プレイヤーを設定する(name:String, time1:int, time2:int):void
   +カウントダウンを開始する(name:String):void
   +プレイヤーに手番を移す(nextPlayer:String):void

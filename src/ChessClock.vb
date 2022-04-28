@@ -65,9 +65,41 @@
         _HandicapAvailable = False
     End Sub
 
+    Public Sub ClearPlayerData()
+        Players.Clear()
+        _CurrentPlayer = Nothing
+    End Sub
+
     Public Sub SetPlayerData(ByVal name As String, ByVal heldTime As Integer, ByVal byo_yomiTime As Integer)
         Players.Add(name, New PlayersTimer(name, heldTime, byo_yomiTime))
     End Sub
+
+    ''' <summary>
+    ''' 持ち時間（分）用
+    ''' </summary>
+    ''' <param name="minVal"></param>
+    ''' <returns>0～99：True</returns>
+    Public Function CheckHeldMinRange(ByVal minVal As Integer) As Boolean
+        Return 0 <= minVal AndAlso minVal < 100
+    End Function
+
+    ''' <summary>
+    ''' 持ち時間（秒）用
+    ''' </summary>
+    ''' <param name="secVal"></param>
+    ''' <returns>0～59：True</returns>
+    Public Function CheckHeldSecRange(ByVal secVal As Integer) As Boolean
+        Return 0 <= secVal AndAlso secVal < 60
+    End Function
+
+    ''' <summary>
+    ''' 秒読み時間（秒）用
+    ''' </summary>
+    ''' <param name="secVal"></param>
+    ''' <returns>0～60：True</returns>
+    Public Function Checkbyo_yomiRange(ByVal secVal As Integer) As Boolean
+        Return 0 <= secVal AndAlso secVal <= 60
+    End Function
 
     ''' <summary>
     ''' 現在のプレイヤーのタイマーを停止し、指定するプレイヤーのタイマーを開始する。
