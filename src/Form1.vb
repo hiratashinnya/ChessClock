@@ -27,6 +27,7 @@
         DuringCountdown = False
     End Sub
 
+#Region "Setting"
     Private Sub DuringSetting_CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DuringSetting_CheckBox.CheckedChanged
         If DuringSetting_CheckBox.Checked Then
             ' 設定開始
@@ -161,5 +162,36 @@
 
             SyncP1P2()
         End If
+    End Sub
+
+#End Region
+
+    Private Sub Player1Done_Button_Click(sender As Object, e As EventArgs) Handles Player1Done_Button.Click, Player2Done_Button.Click
+        Dim nextPlayer As String
+        If CType(sender, Button).Name = Player1Done_Button.Name Then
+            Player1Done_Button.Enabled = False
+            nextPlayer = Player2Name_TextBox.Text
+            Player2Done_Button.Enabled = True
+        ElseIf CType(sender, Button).Name = Player2Done_Button.Name Then
+            Player2Done_Button.Enabled = False
+            nextPlayer = Player1Name_TextBox.Text
+            Player1Done_Button.Enabled = True
+        Else
+            ' 起こらないはず
+            Throw New Exception("変なイベントを拾っている")
+        End If
+
+        If DuringCountdown Then
+            clock.StartNextPlayer(nextPlayer)
+        Else
+            DuringCountdown = True
+            DuringSetting_CheckBox.Enabled = False
+            clock.StartCountDown(nextPlayer)
+        End If
+    End Sub
+
+
+    Private Sub ResetButton_Click(sender As Object, e As EventArgs) Handles ResetButton.Click
+
     End Sub
 End Class
