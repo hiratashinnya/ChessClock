@@ -54,7 +54,7 @@
 
         Player1Done_Button.Enabled = True
         Player2Done_Button.Enabled = True
-        ResetButton.Enabled = True
+        ResetButton.Enabled = False
 
         If CheckSettingDataFormat() Then
             If CanDifferentTime_CheckBox.Checked = False Then
@@ -166,7 +166,7 @@
 
 #End Region
 
-    Private Sub Player1Done_Button_Click(sender As Object, e As EventArgs) Handles Player1Done_Button.Click, Player2Done_Button.Click
+    Private Sub Done_Button_Click(sender As Object, e As EventArgs) Handles Player2Done_Button.Click, Player1Done_Button.Click
         Dim nextPlayer As String
         If CType(sender, Button).Name = Player1Done_Button.Name Then
             Player1Done_Button.Enabled = False
@@ -187,11 +187,28 @@
             DuringCountdown = True
             DuringSetting_CheckBox.Enabled = False
             clock.StartCountDown(nextPlayer)
+            ResetButton.Enabled = True
         End If
     End Sub
 
 
     Private Sub ResetButton_Click(sender As Object, e As EventArgs) Handles ResetButton.Click
+        If DuringCountdown Then
+            clock.PauseTimer()
+            DuringCountdown = False
+        Else
+            clock.Reset()
+            Dim p1Name = Player1Name_TextBox.Text
+            Player1Minitute_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime / 60).ToString()
+            Player1Second_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime Mod 60).ToString()
+            Player1Byo_yomi_TextBox.Text = clock.Players(p1Name).TotalByo_yomiTime.ToString()
 
+            Dim p2Name = Player2Name_TextBox.Text
+            Player2Minitute_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime / 60).ToString()
+            Player2Second_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime Mod 60).ToString()
+            Player2Byo_yomi_TextBox.Text = clock.Players(p2Name).TotalByo_yomiTime.ToString()
+
+            FinishSetting()
+        End If
     End Sub
 End Class

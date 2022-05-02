@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Player2Minitute_TextBox = New System.Windows.Forms.TextBox()
-        Me.Player1Minitute_TextBox = New System.Windows.Forms.TextBox()
         Me.Player1Second_TextBox = New System.Windows.Forms.TextBox()
         Me.Player2Second_TextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,6 +39,7 @@ Partial Class Form1
         Me.Player2Done_Button = New System.Windows.Forms.Button()
         Me.Player1Done_Button = New System.Windows.Forms.Button()
         Me.CanDifferentTime_CheckBox = New System.Windows.Forms.CheckBox()
+        Me.Player1Minitute_TextBox = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Player2Minitute_TextBox
@@ -48,13 +48,6 @@ Partial Class Form1
         Me.Player2Minitute_TextBox.Name = "Player2Minitute_TextBox"
         Me.Player2Minitute_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Minitute_TextBox.TabIndex = 0
-        '
-        'Player1Minitute_TextBox
-        '
-        Me.Player1Minitute_TextBox.Location = New System.Drawing.Point(12, 142)
-        Me.Player1Minitute_TextBox.Name = "Player1Minitute_TextBox"
-        Me.Player1Minitute_TextBox.Size = New System.Drawing.Size(160, 27)
-        Me.Player1Minitute_TextBox.TabIndex = 1
         '
         'Player1Second_TextBox
         '
@@ -191,6 +184,13 @@ Partial Class Form1
         Me.CanDifferentTime_CheckBox.Text = "ハンデあり"
         Me.CanDifferentTime_CheckBox.UseVisualStyleBackColor = True
         '
+        'Player1Minitute_TextBox
+        '
+        Me.Player1Minitute_TextBox.Location = New System.Drawing.Point(12, 142)
+        Me.Player1Minitute_TextBox.Name = "Player1Minitute_TextBox"
+        Me.Player1Minitute_TextBox.Size = New System.Drawing.Size(160, 27)
+        Me.Player1Minitute_TextBox.TabIndex = 1
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
@@ -222,7 +222,6 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Player2Minitute_TextBox As TextBox
-    Friend WithEvents Player1Minitute_TextBox As TextBox
     Friend WithEvents Player1Second_TextBox As TextBox
     Friend WithEvents Player2Second_TextBox As TextBox
     Friend WithEvents Label1 As Label
@@ -239,4 +238,5 @@ Partial Class Form1
     Friend WithEvents Player2Done_Button As Button
     Friend WithEvents Player1Done_Button As Button
     Friend WithEvents CanDifferentTime_CheckBox As CheckBox
+    Friend WithEvents Player1Minitute_TextBox As TextBox
 End Class
