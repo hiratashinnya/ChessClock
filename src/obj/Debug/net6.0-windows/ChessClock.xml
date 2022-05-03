@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ChessClock
+</name>
+</assembly>
+<members>
+<member name="F:ChessClock.ChessClock._EnableByo_yomi">
+ <summary>
+ 秒読みありか
+ </summary>
+</member>
+<member name="F:ChessClock.ChessClock._HandicapAvailable">
+ <summary>
+ ハンデありか
+ </summary>
+</member>
+<member name="E:ChessClock.ChessClock.UpdatedHeldTime">
+ <summary>
+ 持ち時間更新イベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="E:ChessClock.ChessClock.UpdatedByo_yomiTime">
+ <summary>
+ 秒読み時間更新イベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="E:ChessClock.ChessClock.TimeUp">
+ <summary>
+ 時間切れイベント
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:ChessClock.ChessClock.CheckHeldMinRange(System.Int32)">
+ <summary>
+ 持ち時間（分）用
+ </summary>
+ <param name="minVal"></param>
+ <returns>0～99：True</returns>
+</member>
+<member name="M:ChessClock.ChessClock.CheckHeldSecRange(System.Int32)">
+ <summary>
+ 持ち時間（秒）用
+ </summary>
+ <param name="secVal"></param>
+ <returns>0～59：True</returns>
+</member>
+<member name="M:ChessClock.ChessClock.Checkbyo_yomiRange(System.Int32)">
+ <summary>
+ 秒読み時間（秒）用
+ </summary>
+ <param name="secVal"></param>
+ <returns>0～60：True</returns>
+</member>
+<member name="M:ChessClock.ChessClock.StartNextPlayer(System.String)">
+ <summary>
+ 現在のプレイヤーのタイマーを停止し、指定するプレイヤーのタイマーを開始する。
+ </summary>
+ <param name="nextPlayer"></param>
+ <exception cref="T:System.ArgumentOutOfRangeException">プレイヤー数と引数の不一致時に発生する。発生時はなにもしない。</exception>
+</member>
+<member name="M:ChessClock.ChessClock.StartCountDown(System.String)">
+ <summary>
+ カウントダウンの開始メソッド。開始時以外に（StartNextPlayerメソッドの代わりに）呼び出してはならない。
+ </summary>
+ <param name="playerName"></param>
+</member>
+<member name="F:ChessClock.Form1._DuringCountdown">
+ <summary>
+ 動作中フラグ
+ </summary>
+</member>
+<member name="M:ChessClock.PlayersTimer.DecreaseHeldTime">
+ <summary>
+ 持ち時間をデクリメントする。0未満になる場合は0にする。
+ </summary>
+</member>
+<member name="M:ChessClock.PlayersTimer.DecreaseByo_yomiTime">
+ <summary>
+ 秒読み時間をデクリメントする。0未満になる場合は0にする。
+ </summary>
+</member>
+</members>
+</doc>
