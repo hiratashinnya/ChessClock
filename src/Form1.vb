@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Media
+
+Public Class Form1
     Private WithEvents clock As ChessClock
     Private p1min As Integer = 0
     Private p2min As Integer = 0
@@ -168,6 +170,7 @@
 
     Private Sub Done_Button_Click(sender As Object, e As EventArgs) Handles Player2Done_Button.Click, Player1Done_Button.Click
         Dim nextPlayer As String
+
         If CType(sender, Button).Name = Player1Done_Button.Name Then
             Player1Done_Button.Enabled = False
             nextPlayer = Player2Name_TextBox.Text
@@ -183,6 +186,7 @@
 
         If DuringCountdown Then
             clock.StartNextPlayer(nextPlayer)
+            UpdateViewOfTimes()
         Else
             DuringCountdown = True
             DuringSetting_CheckBox.Enabled = False
@@ -198,17 +202,36 @@
             DuringCountdown = False
         Else
             clock.Reset()
-            Dim p1Name = Player1Name_TextBox.Text
-            Player1Minitute_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime / 60).ToString()
-            Player1Second_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime Mod 60).ToString()
-            Player1Byo_yomi_TextBox.Text = clock.Players(p1Name).TotalByo_yomiTime.ToString()
-
-            Dim p2Name = Player2Name_TextBox.Text
-            Player2Minitute_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime / 60).ToString()
-            Player2Second_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime Mod 60).ToString()
-            Player2Byo_yomi_TextBox.Text = clock.Players(p2Name).TotalByo_yomiTime.ToString()
+            UpdateViewOfTimes()
 
             FinishSetting()
         End If
+    End Sub
+
+    Private Sub UpdateViewOfTimes()
+        Dim p1Name = Player1Name_TextBox.Text
+        Player1Minitute_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime / 60).ToString()
+        Player1Second_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime Mod 60).ToString()
+        Player1Byo_yomi_TextBox.Text = clock.Players(p1Name).TotalByo_yomiTime.ToString()
+
+        Dim p2Name = Player2Name_TextBox.Text
+        Player2Minitute_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime / 60).ToString()
+        Player2Second_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime Mod 60).ToString()
+        Player2Byo_yomi_TextBox.Text = clock.Players(p2Name).TotalByo_yomiTime.ToString()
+    End Sub
+
+    Private Sub UpdateHeldTimes(sender As ChessClock, e As ChessClockEventArgs) Handles clock.UpdatedHeldTime
+        UpdateViewOfTimes()
+    End Sub
+
+    Private Sub UpdateByo_yomiTimes(sender As ChessClock, e As ChessClockEventArgs) Handles clock.UpdatedByo_yomiTime
+        UpdateViewOfTimes()
+    End Sub
+
+    Private Sub TimeUp(sender As ChessClock, e As ChessClockEventArgs) Handles clock.TimeUp
+        Player1Done_Button.Enabled = False
+        Player2Done_Button.Enabled = False
+        UpdateViewOfTimes()
+        SystemSounds.Beep.Play()
     End Sub
 End Class

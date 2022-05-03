@@ -158,6 +158,7 @@
             RaiseEvent UpdatedByo_yomiTime(Me, New ChessClockEventArgs(CurrentPlayer))
 
             If CurrentPlayer.RemainByo_yomiTime = 0 Then
+                PauseTimer()
                 RaiseEvent TimeUp(Me, New ChessClockEventArgs(CurrentPlayer))
             Else
                 ' Do nothing.
@@ -170,6 +171,7 @@
                 If EnableByo_yomi Then
                     CurrentPlayer.DuringByo_yomi = True
                 Else
+                    PauseTimer()
                     RaiseEvent TimeUp(Me, New ChessClockEventArgs(CurrentPlayer))
                 End If
             End If
