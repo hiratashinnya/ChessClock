@@ -35,7 +35,7 @@ Partial Class Form1
         Me.Player2Byo_yomi_TextBox = New System.Windows.Forms.TextBox()
         Me.Countdown2_Label = New System.Windows.Forms.Label()
         Me.Countdown1_Label = New System.Windows.Forms.Label()
-        Me.ResetButton = New System.Windows.Forms.Button()
+        Me.Pause_ResetButton = New System.Windows.Forms.Button()
         Me.Player2Done_Button = New System.Windows.Forms.Button()
         Me.Player1Done_Button = New System.Windows.Forms.Button()
         Me.CanDifferentTime_CheckBox = New System.Windows.Forms.CheckBox()
@@ -48,6 +48,7 @@ Partial Class Form1
         Me.Player2Minitute_TextBox.Name = "Player2Minitute_TextBox"
         Me.Player2Minitute_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Minitute_TextBox.TabIndex = 0
+        Me.Player2Minitute_TextBox.Text = "10"
         '
         'Player1Second_TextBox
         '
@@ -55,6 +56,7 @@ Partial Class Form1
         Me.Player1Second_TextBox.Name = "Player1Second_TextBox"
         Me.Player1Second_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player1Second_TextBox.TabIndex = 2
+        Me.Player1Second_TextBox.Text = "0"
         '
         'Player2Second_TextBox
         '
@@ -62,6 +64,7 @@ Partial Class Form1
         Me.Player2Second_TextBox.Name = "Player2Second_TextBox"
         Me.Player2Second_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Second_TextBox.TabIndex = 3
+        Me.Player2Second_TextBox.Text = "0"
         '
         'Label1
         '
@@ -87,6 +90,7 @@ Partial Class Form1
         Me.Player1Name_TextBox.Name = "Player1Name_TextBox"
         Me.Player1Name_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player1Name_TextBox.TabIndex = 6
+        Me.Player1Name_TextBox.Text = "player1"
         '
         'Player2Name_TextBox
         '
@@ -94,6 +98,7 @@ Partial Class Form1
         Me.Player2Name_TextBox.Name = "Player2Name_TextBox"
         Me.Player2Name_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Name_TextBox.TabIndex = 7
+        Me.Player2Name_TextBox.Text = "player2"
         '
         'HasByo_yomi_CheckBox
         '
@@ -108,6 +113,8 @@ Partial Class Form1
         'DuringSetting_CheckBox
         '
         Me.DuringSetting_CheckBox.AutoSize = True
+        Me.DuringSetting_CheckBox.Checked = True
+        Me.DuringSetting_CheckBox.CheckState = System.Windows.Forms.CheckState.Checked
         Me.DuringSetting_CheckBox.Location = New System.Drawing.Point(12, 22)
         Me.DuringSetting_CheckBox.Name = "DuringSetting_CheckBox"
         Me.DuringSetting_CheckBox.Size = New System.Drawing.Size(76, 24)
@@ -121,6 +128,7 @@ Partial Class Form1
         Me.Player1Byo_yomi_TextBox.Name = "Player1Byo_yomi_TextBox"
         Me.Player1Byo_yomi_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player1Byo_yomi_TextBox.TabIndex = 10
+        Me.Player1Byo_yomi_TextBox.Text = "30"
         '
         'Player2Byo_yomi_TextBox
         '
@@ -128,6 +136,7 @@ Partial Class Form1
         Me.Player2Byo_yomi_TextBox.Name = "Player2Byo_yomi_TextBox"
         Me.Player2Byo_yomi_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player2Byo_yomi_TextBox.TabIndex = 11
+        Me.Player2Byo_yomi_TextBox.Text = "30"
         '
         'Countdown2_Label
         '
@@ -147,17 +156,19 @@ Partial Class Form1
         Me.Countdown1_Label.TabIndex = 13
         Me.Countdown1_Label.Text = "秒読み時間"
         '
-        'ResetButton
+        'Pause_ResetButton
         '
-        Me.ResetButton.Location = New System.Drawing.Point(358, 407)
-        Me.ResetButton.Name = "ResetButton"
-        Me.ResetButton.Size = New System.Drawing.Size(79, 31)
-        Me.ResetButton.TabIndex = 14
-        Me.ResetButton.Text = "Reset"
-        Me.ResetButton.UseVisualStyleBackColor = True
+        Me.Pause_ResetButton.Enabled = False
+        Me.Pause_ResetButton.Location = New System.Drawing.Point(358, 407)
+        Me.Pause_ResetButton.Name = "Pause_ResetButton"
+        Me.Pause_ResetButton.Size = New System.Drawing.Size(79, 31)
+        Me.Pause_ResetButton.TabIndex = 14
+        Me.Pause_ResetButton.Text = "Pause"
+        Me.Pause_ResetButton.UseVisualStyleBackColor = True
         '
         'Player2Done_Button
         '
+        Me.Player2Done_Button.Enabled = False
         Me.Player2Done_Button.Location = New System.Drawing.Point(561, 286)
         Me.Player2Done_Button.Name = "Player2Done_Button"
         Me.Player2Done_Button.Size = New System.Drawing.Size(227, 87)
@@ -167,6 +178,7 @@ Partial Class Form1
         '
         'Player1Done_Button
         '
+        Me.Player1Done_Button.Enabled = False
         Me.Player1Done_Button.Location = New System.Drawing.Point(12, 286)
         Me.Player1Done_Button.Name = "Player1Done_Button"
         Me.Player1Done_Button.Size = New System.Drawing.Size(227, 87)
@@ -190,6 +202,7 @@ Partial Class Form1
         Me.Player1Minitute_TextBox.Name = "Player1Minitute_TextBox"
         Me.Player1Minitute_TextBox.Size = New System.Drawing.Size(160, 27)
         Me.Player1Minitute_TextBox.TabIndex = 1
+        Me.Player1Minitute_TextBox.Text = "10"
         '
         'Form1
         '
@@ -199,7 +212,7 @@ Partial Class Form1
         Me.Controls.Add(Me.CanDifferentTime_CheckBox)
         Me.Controls.Add(Me.Player1Done_Button)
         Me.Controls.Add(Me.Player2Done_Button)
-        Me.Controls.Add(Me.ResetButton)
+        Me.Controls.Add(Me.Pause_ResetButton)
         Me.Controls.Add(Me.Countdown1_Label)
         Me.Controls.Add(Me.Countdown2_Label)
         Me.Controls.Add(Me.Player2Byo_yomi_TextBox)
@@ -234,7 +247,7 @@ Partial Class Form1
     Friend WithEvents Player2Byo_yomi_TextBox As TextBox
     Friend WithEvents Countdown2_Label As Label
     Friend WithEvents Countdown1_Label As Label
-    Friend WithEvents ResetButton As Button
+    Friend WithEvents Pause_ResetButton As Button
     Friend WithEvents Player2Done_Button As Button
     Friend WithEvents Player1Done_Button As Button
     Friend WithEvents CanDifferentTime_CheckBox As CheckBox
