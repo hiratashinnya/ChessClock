@@ -78,6 +78,7 @@
         _DuringByo_yomi = False
 
         _OwnTimer = New Timer
+        _OwnTimer.Interval = 1000
     End Sub
 
     Public Sub ChangePlayerData(ByVal name As String, ByVal heldTime As Integer, ByVal byo_yomiTime As Integer)
