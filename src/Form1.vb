@@ -22,11 +22,22 @@ Public Class Form1
         End Set
     End Property
 
+    Private _DuringPause As Boolean
+    Public Property DuringPause() As Boolean
+        Get
+            Return _DuringPause
+        End Get
+        Set(ByVal value As Boolean)
+            _DuringPause = value
+        End Set
+    End Property
+
     Private Const min2sec As Integer = 60
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         clock = New ChessClock(2)
         DuringCountdown = False
+        DuringPause = False
     End Sub
 
 #Region "Setting"
@@ -56,7 +67,7 @@ Public Class Form1
 
         Player1Done_Button.Enabled = True
         Player2Done_Button.Enabled = True
-        ResetButton.Enabled = False
+        Pause_ResetButton.Enabled = False
 
         If CheckSettingDataFormat() Then
             If CanDifferentTime_CheckBox.Checked = False Then
@@ -65,6 +76,7 @@ Public Class Form1
             clock.ClearPlayerData()
             clock.SetPlayerData(Player1Name_TextBox.Text, p1min * min2sec + p1sec, p1byo)
             clock.SetPlayerData(Player2Name_TextBox.Text, p2min * min2sec + p2sec, p2byo)
+            clock.EnableByo_yomi = HasByo_yomi_CheckBox.Checked
         Else
             DuringSetting_CheckBox.Checked = True
         End If
@@ -73,7 +85,7 @@ Public Class Form1
     Private Sub StartSetting()
         Player1Done_Button.Enabled = False
         Player2Done_Button.Enabled = False
-        ResetButton.Enabled = False
+        Pause_ResetButton.Enabled = False
 
         Player1Name_TextBox.Enabled = True
         Player1Minitute_TextBox.Enabled = True
@@ -188,34 +200,62 @@ Public Class Form1
             clock.StartNextPlayer(nextPlayer)
             UpdateViewOfTimes()
         Else
-            DuringCountdown = True
-            DuringSetting_CheckBox.Enabled = False
-            clock.StartCountDown(nextPlayer)
-            ResetButton.Enabled = True
+            If DuringPause Then
+                clock.StartNextPlayer(nextPlayer)
+                UpdateViewOfTimes()
+                DuringPause = False
+                DuringCountdown = True
+                Pause_ResetButton.Text = "Pause"
+            Else
+                DuringCountdown = True
+                DuringSetting_CheckBox.Enabled = False
+                clock.StartCountDown(nextPlayer)
+                Pause_ResetButton.Enabled = True
+            End If
         End If
     End Sub
 
 
-    Private Sub ResetButton_Click(sender As Object, e As EventArgs) Handles ResetButton.Click
+    Private Sub ResetButton_Click(sender As Object, e As EventArgs) Handles Pause_ResetButton.Click
         If DuringCountdown Then
             clock.PauseTimer()
             DuringCountdown = False
+            DuringPause = True
+            Pause_ResetButton.Text = "Reset"
+            Player1Done_Button.Enabled = Not Player1Done_Button.Enabled
+            Player2Done_Button.Enabled = Not Player2Done_Button.Enabled
         Else
-            clock.Reset()
-            UpdateViewOfTimes()
-
-            FinishSetting()
+            If DuringPause Then
+                clock.Reset()
+                ResetViewOfTimes()
+                DuringPause = False
+                Pause_ResetButton.Text = "Pause"
+                DuringSetting_CheckBox.Enabled = True
+                FinishSetting()
+            End If
         End If
     End Sub
 
     Private Sub UpdateViewOfTimes()
         Dim p1Name = Player1Name_TextBox.Text
-        Player1Minitute_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime / 60).ToString()
+        Player1Minitute_TextBox.Text = Int(clock.Players(p1Name).RemainHeldTime / 60).ToString()
+        Player1Second_TextBox.Text = CInt(clock.Players(p1Name).RemainHeldTime Mod 60).ToString()
+        Player1Byo_yomi_TextBox.Text = clock.Players(p1Name).RemainByo_yomiTime.ToString()
+
+        Dim p2Name = Player2Name_TextBox.Text
+        Player2Minitute_TextBox.Text = Int(clock.Players(p2Name).RemainHeldTime / 60).ToString()
+        Player2Second_TextBox.Text = CInt(clock.Players(p2Name).RemainHeldTime Mod 60).ToString()
+        Player2Byo_yomi_TextBox.Text = clock.Players(p2Name).RemainByo_yomiTime.ToString()
+    End Sub
+
+    Private Sub ResetViewOfTimes()
+        Dim p1Name = Player1Name_TextBox.Text
+        Player1Minitute_TextBox.Text = Int(clock.Players(p1Name).TotalHeldTime / 60).ToString()
         Player1Second_TextBox.Text = CInt(clock.Players(p1Name).TotalHeldTime Mod 60).ToString()
         Player1Byo_yomi_TextBox.Text = clock.Players(p1Name).TotalByo_yomiTime.ToString()
 
         Dim p2Name = Player2Name_TextBox.Text
-        Player2Minitute_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime / 60).ToString()
+        Player2Minitute_TextBox.Text = Int(clock.Players(p2Name).TotalHeldTime / 60).ToString()
         Player2Second_TextBox.Text = CInt(clock.Players(p2Name).TotalHeldTime Mod 60).ToString()
         Player2Byo_yomi_TextBox.Text = clock.Players(p2Name).TotalByo_yomiTime.ToString()
     End Sub
@@ -232,6 +272,9 @@ Public Class Form1
         Player1Done_Button.Enabled = False
         Player2Done_Button.Enabled = False
         UpdateViewOfTimes()
+        Pause_ResetButton.Text = "Reset"
+        DuringCountdown = False
+        DuringPause = True
         SystemSounds.Beep.Play()
     End Sub
 End Class
